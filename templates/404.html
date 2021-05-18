@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Error 404{% endblock %}
+{% block content %}<center><div class="container404"><u><h1>Error 404 - Page Not Found</h1></u>
+    <p>The url requested does not exist. The page may have been moved or deleted.</p>
+    <img src="{{url_for('static',filename='imgs/404img.png')}}" alt=""id="img404" >
+    <br><br>
+    <a href="{{url_for('home')}}">Go Home</a>
+    
+    
+</div>
+</center>{% endblock %}

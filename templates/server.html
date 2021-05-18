@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}{{server.name}}{% endblock %}
+{% block content %}
+
+
+    <p class='accent-fg'>Accent</p>
+    <div class="topbar">
+        <div class="breadcrumb">
+        <p>{{server.name}}</p>
+        <p>/</p>
+        {% if channel and server.getcbyid(channel) %}
+            <p>{{server.getcbyid(channel).name}}</p>
+        {% endif %}
+      
+    </div>
+    <p class="slink">{{request.url}}</p>
+    <div class="account">
+        <div class="mini-icon"><img src="{{url_for('static',filename='/imgs/a.png')}}"></img></div>
+        <a href='/account'>{{user.name}}</a>
+        
+    </div>
+    </div>
+    <div class="leftbar">
+        <p>Chats</p>
+        {% for s in user.servers %}
+            <div class="icon" onclick="window.location.href = '/server/{{s.id}}';">{{s.initials}}</div>
+        {% endfor %}
+        <form action="{{url_for('new_server')}}" class="sadd" method="POST">
+            <input type="text" id="cname" name="sname"  placeholder="Chat..."><br>
+            <input type="submit" id='cbtn' value="Create">
+        </form>
+    </div>
+    
+    <ul class="members">
+        {% for m in server.members %}
+            {% if getuid(m).active %}
+                <li><div class="mini-icon green-bg"></div>{{getuid(m).name}}</li>
+            {% else %}
+                <li><div class="mini-icon red-bg"></div>{{getuid(m).name}}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+  <ul class="channelbar">
+      <h3 id = 'sname'>{{server.name}}</h3>
+      <form action="{{url_for('new_channel')}}" class="msgsend"  method="POST">
+        <input style="display: none;" name='sid' value="{{server.id}}">
+        <input type="text" id="cname" name="cname"  placeholder="Channel..."><br>
+        <input type="submit" id='cbtn' value="Create">
+    </form>
+      {% for c in server.channels %}
+      <li>{% if channel != None and c.id == channel %}
+          <b><a href="/server/{{server.id}}/channel/{{c.id}}">{{c.name}}</a></b>
+          {% else %}<a href="/server/{{server.id}}/channel/{{c.id}}">{{c.name}}</a>
+          {% endif %}</li>
+      {% endfor %}
+  </ul>
+  {% if channel and server.getcbyid(channel) %}
+  <div class="main"><ul>
+    {% for m in server.getcbyid(channel).msgs %}
+    <li><h3 class="{{m.colour}}">{{m.sender}}</h3>{{m.content}}</li>
+    {% endfor %}
+  </ul>
+
+</div>
+<form action="{{url_for('send')}}" class="msgsend" method="POST">
+    <input style="display: none;" name='info' value="{{server.id}}${{server.getcbyid(channel).id}}">
+    <input type="text" class="" name="msg"  placeholder="Chat..."><br>
+    <input type="submit"  value="Send">
+</form>
+{% endif %}   
+    
+{% endblock %}

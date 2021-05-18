@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+:root{
+    margin: 0;
+    padding: 0;
+    --lighter: rgb(112, 114, 111);
+    --davys-grey: #50514fff;
+    --darker: rgb(54, 54, 53);
+    --red-crayola: #ed254eff;
+    --naples-yellow: #f9dc5cff;
+    --cornflower-blue: #7b8cdeff;
+    --caribbean-green: #06d6a0ff;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--davys-grey);
+    color: white;
+}
+
+
+
+.icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    position: relative;
+    background-color: var(--cornflower-blue);
+    color: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    
+    padding: 25px;
+    overflow: hidden;
+
+    transition: background-color linear 0.2s, border-radius linear 0.2s;
+
+}
+.mini-icon{
+
+    position: relative;
+    background-color: var(--cornflower-blue);
+    color: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    
+    padding: 10px;
+    overflow: hidden;
+
+
+
+}
+.icon:hover{
+    cursor: pointer;
+    background-color: var(--caribbean-green);
+    border-radius: 12px;
+}
+.icon img{
+    position: absolute;
+    opacity: 0.8;
+    text-align: center;
+    top: -25px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+}
+.icon img:hover{
+    opacity: 0.9;
+}
+.topbar{
+    color: white;
+    position: absolute;
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: var(--darker);
+}
+.account .mini-icon{
+    margin: 8px 10px;
+}
+.account p{
+    margin: 10px 10px;
+}
+.leftbar{
+    color: white;
+    overflow-y: scroll;
+    position: absolute;
+
+    top: 50px;
+    left: 0;
+    width: 175px;
+    height: 93%;
+    background-color: var(--darker);
+}
+.mini-icon img{
+    position: absolute;
+    opacity: 0.8;
+    text-align: center;
+    top: -25px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+}
+.leftbar p{
+    margin: 0px 10px;
+}
+.leftbar :not(p){
+    margin: 10px 50px;
+  
+}
+#sname{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.channelbar{
+    color: white;
+    overflow-y: scroll;
+    position: absolute;
+    list-style: none;
+    top: 30px;
+    left: 175px;
+    width: 175px;
+    height: 93.5%;
+    background-color: var(--darker);
+}
+.channelbar *{
+    color: white;
+    text-decoration: none;
+}
+.error{
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    color: white;
+    background-color: red;
+}
+.account{
+    display: flex;
+    flex-direction: row;
+    float: right;
+}
+.red{
+    color: red;
+}
+.orange{
+    color:orange;
+}
+.yellow{
+    color: yellow;
+}
+.green{
+    color: greenyellow;
+}
+.blue{
+    color: blue;
+}
+.purple{
+    color: rebeccapurple;
+}
+.slink{
+    position: absolute;
+    left: 30%;
+}
+.main{
+    position: absolute;
+    color: white;
+    top: 100px;
+    left: 500px;
+    width: 50%;
+    height: 80%;
+    overflow-y: scroll;
+}
+.main ul{
+    list-style: none;
+    
+}
+
+.account *{
+    margin: 0px 10px;
+}
+.account a{
+    margin: 10px 10px;
+    color: white;
+}
+.msgsend{
+    position: absolute;
+    bottom: 0px;
+    left: 30%;
+    display: flex;
+    flex-direction: row;
+}
+.sadd{
+    position: fixed;
+    bottom: 0px;
+    left: -50px;
+    display: flex;
+    flex-direction: row;
+}
+
+input{
+    padding: 6px 10px;
+    margin: 8px 0;
+    border: none;
+    color: white;
+    background-color: var(--lighter);
+    box-sizing: border-box;
+}
+#cname{
+    position: absolute;
+    width: 100px;
+    left: -50px;
+    bottom: 20px;
+
+}
+#cbtn{
+    position: absolute;
+    width: 50px;
+    left: 50px;
+    bottom: 20px;
+}
+.members{
+    color: white;
+    overflow-y: scroll;
+    position: absolute;
+    list-style: none;
+    top: 30px;
+    right: 0px;
+    width: 100px;
+    height: 93.5%;
+    background-color: var(--darker);
+}
+.breadcrumb{
+    text-align: center;
+    float: left;
+    display: flex;
+    flex-direction: row;
+    margin: 0px 10px;
+}
+.breadcrumb *{
+    margin: 10px 2px;
+    text-decoration: none;
+}
+
+.breadcrumb :not(:last-child){
+    color: var(--lighter);
+}
+.breadcrumb :last-child{
+    color: white;
+}
+.dark{
+    background-color: var(--davys-grey);
+}
+.accent{
+    background-color: var(--cornflower-blue);
+}
+.dark-fg{
+    color: var(--davys-grey);
+}
+.accent-fg{
+    color: var(--cornflower-blue);
+}
+.green-bg{
+    background-color: var(--caribbean-green);
+}
+.red-bg{
+    background-color: var(--red-crayola);
+}

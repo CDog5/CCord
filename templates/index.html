@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Discord Clone{% endblock %}
+{% block content %}<script src="{{url_for('static',filename='js/index.js')}}"></script>
+{% if error %}
+    <div class="error">
+        {{error}}
+    </div>
+{% endif %}
+<div class="su-wrapper">
+<form action="{{url_for('sign_up')}}"method="POST">
+    <center><h1>Sign Up</h1>
+    <input type="text" class="in-input" name="suusr"  placeholder="Username..."><br>
+    <input type="password" class="in-input"name="supwd" id="title" style="margin-bottom: 20px; size:50px;" placeholder="Password..."><br>
+    <input type="submit"  value="Sign Up"></center>
+</form>
+</div>
+<div class="lg-wrapper">
+<form action="{{url_for('lg_auth')}}" method="POST">
+    <center><h1>Login</h1>
+    <input type="text"name="lgusr" class="in-input"placeholder="Username..."><br>
+    <input type="password"name="lgpwd"class="in-input" id="title" style="margin-bottom: 20px; size:50px;" placeholder="Password..."><br>
+    <input type="submit"  value="Login"></center>
+     
+</form>
+</div> 
+
+{% endblock %}
