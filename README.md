@@ -1,0 +1,2 @@
+# CCord
+Inspired by discord!
