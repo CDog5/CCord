@@ -140,4 +140,4 @@ def account():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html")
-waitress.serve(app,host='0.0.0.0',port=5000)
+waitress.serve(app,host='0.0.0.0')
